@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>色をタッチしよう！</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game">
+    <section id="controls" aria-labelledby="title">
+      <p id="counter"></p>
+      <h1 id="title">色をタッチしよう！</h1>
+      <div id="targets" hidden></div>
+      <p id="message" role="status">はじめに カメラを オンにしてね</p>
+      <p id="hint"></p>
+      <progress id="progress" max="1" value="0" aria-label="キープ時間" hidden></progress>
+
+      <button id="enable">カメラをオン</button>
+      <button id="next" hidden></button>
+      <button id="reset" class="secondary" hidden>マーカーを とうろくしなおす</button>
+    </section>
+
+    <section id="camera" aria-label="カメラ映像">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="view" width="600" height="720"></canvas>
+    </section>
+
+    <section id="results" aria-labelledby="result-title" hidden>
+      <h2 id="result-title">全問正解！</h2>
+      <p>しゃしんを タップすると 大きくなるよ</p>
+      <div id="photos"></div>
+      <button id="restart">もういちど あそぶ</button>
+    </section>
+  </main>
+
+  <dialog id="zoom" aria-label="記念写真">
+    <img id="large-photo" alt="拡大した記念写真">
+    <div class="actions">
+      <a id="download" class="button" download>写真を保存</a>
+      <form method="dialog"><button>とじる</button></form>
+    </div>
+  </dialog>
+
+  <script src="./app.js?v=3" defer></script>
+</body>
+</html>

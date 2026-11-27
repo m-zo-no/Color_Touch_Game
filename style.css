@@ -1,0 +1,119 @@
+:root {
+  font-family: system-ui, "Hiragino Sans", sans-serif;
+  color: #395443;
+  background: #e0f7de;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+
+#game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100svh;
+}
+
+#controls, #results {
+  padding: clamp(16px, 4vw, 48px);
+  text-align: center;
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+#controls > * { margin: 0; }
+h1, h2 { font-size: clamp(28px, 4vw, 52px); }
+#message { font-size: clamp(20px, 2.7vw, 34px); font-weight: 700; }
+#hint { min-height: 1.5em; }
+#counter { color: #526e5c; }
+
+#camera {
+  position: relative;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  background: #18251e;
+}
+
+#video {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#view {
+  display: block;
+  width: 100%;
+  height: min(100svh, 120vw);
+  object-fit: contain;
+}
+
+#targets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65em;
+  padding: 16px 24px 8px;
+  border-radius: 22px;
+  background: #f7fff1;
+  font-size: clamp(38px, 7vw, 88px);
+  font-weight: 800;
+}
+
+ruby rt { font-size: 0.3em; }
+.and { font-size: 0.45em; }
+progress { width: min(100%, 360px); height: 18px; accent-color: #22854a; }
+
+button, .button {
+  display: inline-block;
+  padding: 12px 20px;
+  min-height: 48px;
+  border: 2px solid #395443;
+  border-radius: 16px;
+  background: #fffff6;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:disabled { opacity: 0.6; }
+.secondary { font-size: 0.9rem; }
+
+#results { grid-column: 1 / -1; }
+#photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+#photos button { padding: 8px; }
+#photos img { display: block; width: 100%; margin-top: 6px; border-radius: 8px; }
+
+dialog {
+  max-width: 95vw;
+  border: 0;
+  border-radius: 16px;
+  background: #f7fff1;
+  color: inherit;
+}
+dialog::backdrop { background: #000a; }
+#large-photo { display: block; max-width: 85vw; max-height: 70svh; margin: auto; }
+.actions { display: flex; justify-content: center; gap: 12px; margin-top: 12px; }
+
+@media (orientation: portrait) {
+  #game { grid-template-columns: 1fr; }
+  #camera { min-height: 0; }
+  #view { height: min(58svh, 120vw); }
+}
